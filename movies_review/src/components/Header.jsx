@@ -1,16 +1,24 @@
 import React , {useState} from 'react'
 import { useNavigate,Link } from 'react-router-dom';
 import Menu from './Menu';
+import Context from './context';
 
 function header() {
     // const navigate = useNavigate();
     const [queryS,setQueryS]=useState(null);
+    const [qType,setQType]=useState(null);
     const [modal,setModal]=useState(false);
-    const sos=(e)=>{
+    const [query,setQuery]=useState(null);
+    //
+    //reduce function for query
+    const sos=(e,queryS,qType)=>{
         const name = e.target.value.trim();
-        const createS=`s=${name}`;
+        const createS=`&s=${name}`;
+        const createQ=createS+qType;
         console.log(createS);
+        console.log(createQ);
         setQueryS(createS);
+        setQuery(createQ);
     }
     const funxmod=()=>{
         modal===(true)?setModal(false):setModal(true);
@@ -18,6 +26,7 @@ function header() {
     }
   return (
     <>
+        {/* <Context/> */}
         <div className="bg-gray-100">
             <div className=''>
                 <div className='basis-0 flex-row'>
@@ -33,7 +42,7 @@ function header() {
         </div>
         {
         modal &&(
-            <Menu />
+            <Menu qType={qType} setQType={setQType} />
         )
         }
     </>

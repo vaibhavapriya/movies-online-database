@@ -1,8 +1,8 @@
 import React,{ useState } from 'react'
 
-function Menu() {
-  const [qType,setQType]=useState(null);
-  const [qY,setQY]=useState(null);
+function Menu({QType,setQType}) {
+  
+  // const [qY,setQY]=useState(null);
   const funMovie=()=>{
     setQType(`&type=movie`);
     console.log(`&type=movie`)
@@ -20,10 +20,10 @@ function Menu() {
             <button onClick={funSeries}>series</button>
           </div>
         </div>     
-        <div>
+        {/* <div>
             <div>More Specific</div>
             <label><input placeholder='year'></input></label>
-        </div>
+        </div> */}
     </div>
   )
 }
