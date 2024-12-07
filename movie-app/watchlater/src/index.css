@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.1);
+  background-color: #2563eb;
+}
+img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
