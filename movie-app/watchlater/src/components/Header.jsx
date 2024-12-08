@@ -15,14 +15,14 @@ function Header() {
                 <button onClick={toggleMenu} className="btn btn-secondary">Filter</button>
                 {isOpen&&<Menu isOpen={isOpen} setIsOpen={setIsOpen}/>}
             </div>
-            <div className="flex items-center gap-4">
+            <div className=" input-wrapper">
                 <input
                     type="text"
                     className="p-2 border rounded w-70"
                     placeholder="Search..."
                     onChange={(e) => setQuery(e.target.value)}
                 />
-                <Link to={`/search?q=${query}`} className="btn btn-primary">Search</Link>
+                <Link to={`/search?q=${query}`} className="btn btn-primary"><button>Search</button></Link>
                 
             </div>
             <Link to="/watchlist" className="btn btn-primary">Watchlist</Link>

@@ -1,0 +1,82 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+   */
+
+ .home ul {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .home li {
+    padding: 0;
+    flex: 1;
+    transition: flex 0.2s ease;
+  }
+  
+  .home img {
+    width: 100%;
+    height: calc(100vh - 60px); /* Adjust height minus header */
+    object-fit: cover;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+  }
+  
+  /* Hover effects for images */
+  .home ul:is(:hover, :focus-within) img {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
+  
+  .home li:is(:hover, :focus-within) img {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+  
+  /* Adjust the flex property for smoother resizing */
+  .home li:is(:hover, :focus-within) {
+    flex: 3;
+    z-index: 10;
+  }
+  
+  .home li:has(+ li:is(:hover, :focus-within)),
+  .home li:is(:hover, :focus-within) + li {
+    flex: 2;
+  }
+  
+  .home li:has(+ li + li:is(:hover, :focus-within)),
+  .home li:is(:hover, :focus-within) + li + li {
+    flex: 1.5;
+  }
+  
+  .home li:has(+ li + li + li:is(:hover, :focus-within)),
+  .home li:is(:hover, :focus-within) + li + li + li {
+    flex: 1;
+  }
+  
+  .home a {
+    display: block;
+    outline: none;
+  }
+  
+  /* Ensure the layout is responsive */
+  @media (max-width: 768px) {
+    .home ul {
+      flex-direction: column;
+    }
+  
+    .home li {
+      flex: unset;
+      height: calc(50vh - 30px);
+    }
+  
+    .home img {
+      height: 100%;
+    }
+  }
+  
+  

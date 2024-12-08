@@ -20,7 +20,7 @@ function movieReducer(state, action) {
         case 'REMOVE_FAVORITE':
             return {
                 ...state,
-                favorites: state.favorites.filter(movie => movie.id !== action.payload.id),
+                favorites: state.favorites.filter(movie => movie.imdbID !== action.payload.imdbID),
             };
         case 'SET_FILTER':
             return { ...state, filter: action.payload };
