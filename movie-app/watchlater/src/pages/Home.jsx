@@ -34,10 +34,13 @@ function Home() {
     
     return (
         <div className="home">
+            <div className="title text-xxl font-bold">
+                <h1>long weekend binge avengers</h1>
+            </div>
             <ul className="results">
                 {featuredMovies.map((movie) => (
                     <li className="result" key={movie.imdbID}>
-                        <Link to={`/movie/${movie.imdbID}`}  ><img src={movie.Poster} alt={movie.Title} className="w-full h-auto object-cover" /></Link>
+                        <Link to={`/movie/${movie.imdbID}`}  ><img src={movie.Poster} alt={movie.Title}  /></Link>
                     </li>
                 ))}
             </ul>

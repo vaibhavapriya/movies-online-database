@@ -36,17 +36,22 @@ function MovieDetails() {
 
   return (
     <div className="p-4">
-      <button className="" onClick={() => navigate(-1)}>X</button>
+      <button className="flex justify-end w-full" onClick={() => navigate(-1)}>X</button>
       <h1 className="text-2xl font-bold">{movie.Title}</h1>
-      <img src={movie.Poster} alt={movie.Title} />
-        <div>{movie.Year} {movie.imdbVotes}</div>
-        <div>{movie.Genre}</div>
+      <div className="flex  p-4 flex-col md:flex-row">
+        <div className="p-4">
+        <img src={movie.Poster} alt={movie.Title} />
+        <h3>{movie.Year} Votes:{movie.imdbVotes}</h3>
+        </div>
+        <div className="p-4">
         <div>{movie.Plot}</div>
-        <div>{movie.Actors}</div>
-        <div>{movie.Runtime}</div>
-        <div>{movie.imdbRating}</div> 
-        <button onClick={addfav}>Watchlater</button>
-
+        <div>Genre:{movie.Genre}</div>
+        <div>Cast:{movie.Actors}</div>
+        <div>Runtime:{movie.Runtime}</div>
+        <div>Rating:{movie.imdbRating}</div> 
+        <button onClick={addfav} className="btn btn-primary">Watchlater</button>
+        </div>
+      </div>
     </div>
   );
 }

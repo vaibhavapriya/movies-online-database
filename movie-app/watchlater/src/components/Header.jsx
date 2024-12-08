@@ -9,13 +9,11 @@ function Header() {
     const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <>
-    <div className="bg-gray-100 p-4 flex items-center justify-between">
+    <div className=" p-4 flex items-center justify-between font-serif">
             <Link to="/" className="text-xl font-bold">Movie Search</Link>
+
+            <div className=" flex row w-1/2 justify-evenly">
             <div>
-                <button onClick={toggleMenu} className="btn btn-secondary">Filter</button>
-                {isOpen&&<Menu isOpen={isOpen} setIsOpen={setIsOpen}/>}
-            </div>
-            <div className=" input-wrapper">
                 <input
                     type="text"
                     className="p-2 border rounded w-70"
@@ -23,9 +21,13 @@ function Header() {
                     onChange={(e) => setQuery(e.target.value)}
                 />
                 <Link to={`/search?q=${query}`} className="btn btn-primary"><button>Search</button></Link>
-                
             </div>
-            <Link to="/watchlist" className="btn btn-primary">Watchlist</Link>
+            <div>
+                <button onClick={toggleMenu} className="btn btn-secondary">Filter</button>
+                {isOpen&&<Menu isOpen={isOpen} setIsOpen={setIsOpen}/>}
+            </div>
+                <Link to="/watchlist" className="btn btn-primary">Watchlist</Link>
+            </div>
         </div>
     </>
   )

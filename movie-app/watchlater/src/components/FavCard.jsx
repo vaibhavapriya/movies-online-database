@@ -20,7 +20,7 @@ function MovieCard({key, movie}) {
           <div className='flex flex-row justify-between'>
             <div>{movie.Year}  </div><div>{movie.Type}</div>
           </div>
-          <button onClick={removeFav} className='mr'>Remove</button>
+          <button onClick={removeFav} className='btn btn-primary'>Remove</button>
         </div>
     </div>
   )

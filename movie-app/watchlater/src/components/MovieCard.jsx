@@ -25,7 +25,7 @@ function MovieCard({key, movie}) {
           <div className='flex flex-row justify-between'>
             <div>{movie.Year}  </div><div>{movie.Type}</div>
           </div>
-          <button onClick={addfav}>Watchlater</button>
+          <button onClick={addfav} className='btn'>Watchlater</button>
         </div>
     </div>
   )
