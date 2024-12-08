@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Menu() {
-    const [isOpen, setIsOpen] = useState(false);
+function Menu({isOpen,setIsOpen}) {
     const navigate = useNavigate();
 
     const handleFilterClick = (type) => {
@@ -15,10 +14,10 @@ function Menu() {
     return (
         // className="relative"
         <div >
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-gray-200 rounded">
+            {/* <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-gray-200 rounded">
                 Filters
-            </button>
-            {isOpen && (
+            </button> 
+            {isOpen && ( */}
                 <ul className="absolute bg-white border rounded shadow">
                     <li onClick={() => handleFilterClick('all')} className="p-2 cursor-pointer">
                         All
@@ -30,7 +29,7 @@ function Menu() {
                         Series
                     </li>
                 </ul>
-            )}
+            {/* )}  */}
         </div>
     );
 }

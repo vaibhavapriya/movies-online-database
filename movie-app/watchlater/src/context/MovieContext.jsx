@@ -12,6 +12,10 @@ function movieReducer(state, action) {
         case 'SET_MOVIES':
             return { ...state, movies: action.payload };
         case 'ADD_FAVORITE':
+            // Avoid duplicates in favorites
+            if (state.favorites.some(movie => movie.imdbID=== action.payload.imdbID)) {
+                return state; // No changes if the movie already exists
+            }
             return { ...state, favorites: [...state.favorites, action.payload] };
         case 'REMOVE_FAVORITE':
             return {
