@@ -18,7 +18,7 @@ function Menu({isOpen,setIsOpen}) {
                 Filters
             </button> 
             {isOpen && ( */}
-                <ul className="absolute bg-white border rounded shadow">
+                <ul className="absolute bg-white border rounded shadow text-black">
                     <li onClick={() => handleFilterClick('all')} className="p-2 cursor-pointer">
                         All
                     </li>

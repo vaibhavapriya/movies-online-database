@@ -13,16 +13,32 @@ function MovieCard({key, movie}) {
 }
 
   return (
-    <div className="p-4 border rounded  flex flex-col justify-between h-full">
-        <img src={movie.Poster} alt={movie.Title} className="w-full h-auto object-cover" />
-        <div>
-          <Link to={`/movie/${movie.imdbID}`} className="text-lg font-bold mt-2" >{movie.Title}</Link>
-          <div className='flex flex-row justify-between'>
-            <div>{movie.Year}  </div><div>{movie.Type}</div>
-          </div>
-          <button onClick={removeFav} className='btn btn-primary'>Remove</button>
-        </div>
+<div className="p-4 border rounded-lg flex flex-col justify-between h-full bg-white shadow-md">
+  <img
+    src={movie.Poster}
+    alt={movie.Title}
+    className="rounded-t-lg w-full h-auto object-cover"
+  />
+  <div className="p-4 flex flex-col justify-end flex-grow">
+    <Link
+      to={`/movie/${movie.imdbID}`}
+      className="text-lg font-bold text-black hover:underline mb-2"
+    >
+      {movie.Title}
+    </Link>
+    <div className="flex justify-between text-gray-700 text-sm mb-4">
+      <span>{movie.Year}</span>
+      <span className="capitalize">{movie.Type}</span>
     </div>
+    <button
+      onClick={removeFav}
+      className="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300"
+    >
+      Remove
+    </button>
+  </div>
+</div>
+
   )
 }
 

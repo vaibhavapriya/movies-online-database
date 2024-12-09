@@ -36,31 +36,48 @@ function SearchResults() {
 
     return (
         <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Search Results</h2>
-            {error ? (
-                <div className="text-red-500">{error}</div>
-            ) : (
-                <>
-                    <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 gap-4">
-                        {movies.length ? (
-                            movies.map((movie) => <MovieCard key={movie.imdbID} movie={movie} />)
-                        ) : (
-                            <p>No results found.</p>
-                        )}
-                    </div>
-                    {totalResults > 10 && (
-                        <div className="flex justify-evenly mt-4">
-                            <button onClick={handlePrevPage} disabled={page === 1}>
-                                Previous
-                            </button>
-                            <button onClick={handleNextPage} disabled={page * 10 >= totalResults}>
-                                Next
-                            </button>
-                        </div>
-                    )}
-                </>
-            )}
+  <h2 className="text-2xl font-bold mb-4 text-black">Search Results</h2>
+  {error ? (
+    <div className="text-red-500 text-center font-medium">{error}</div>
+  ) : (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {movies.length ? (
+          movies.map((movie) => <MovieCard key={movie.imdbID} movie={movie} />)
+        ) : (
+          <p className="text-center text-gray-600">No results found.</p>
+        )}
+      </div>
+      {totalResults > 10 && (
+        <div className="flex justify-center space-x-4 mt-6">
+          <button
+            onClick={handlePrevPage}
+            disabled={page === 1}
+            className={`px-4 py-2 rounded-lg font-semibold transition duration-300 ${
+              page === 1
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-black text-white hover:bg-gray-800"
+            }`}
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNextPage}
+            disabled={page * 10 >= totalResults}
+            className={`px-4 py-2 rounded-lg font-semibold transition duration-300 ${
+              page * 10 >= totalResults
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-black text-white hover:bg-gray-800"
+            }`}
+          >
+            Next
+          </button>
         </div>
+      )}
+    </>
+  )}
+</div>
+
     );
 }
 

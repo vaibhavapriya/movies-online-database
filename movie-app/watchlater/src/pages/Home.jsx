@@ -35,7 +35,7 @@ function Home() {
     return (
         <div className="home">
             <div className="title text-xxl font-bold">
-                <h1>long weekend binge avengers</h1>
+                <h1>Long weekend binge avengers</h1>
             </div>
             <ul className="results">
                 {featuredMovies.map((movie) => (

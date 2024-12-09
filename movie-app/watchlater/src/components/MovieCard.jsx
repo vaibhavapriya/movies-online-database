@@ -18,16 +18,22 @@ function MovieCard({key, movie}) {
 }
 
   return (
-    <div className="p-4 border rounded  flex flex-col justify-between h-full">
-        <Link to={`/movie/${movie.imdbID}`}  ><img src={movie.Poster} alt={movie.Title} className="w-full h-auto object-cover" /></Link>
-        <div>
-          <div className="text-lg font-bold mt-2">{movie.Title}</div>
-          <div className='flex flex-row justify-between'>
-            <div>{movie.Year}  </div><div>{movie.Type}</div>
-          </div>
-          <button onClick={addfav} className='btn'>Watchlater</button>
-        </div>
+<div className="p-4 border rounded-lg flex flex-col justify-between h-full bg-white shadow-lg">
+  <Link to={`/movie/${movie.imdbID}`}>
+    <img src={movie.Poster} alt={movie.Title} className="w-full h-auto object-cover rounded-t-lg"/>
+  </Link>
+  <div className="p-4 flex flex-col justify-end flex-grow">
+    <div className="text-lg font-bold text-black mb-2">{movie.Title}</div>
+    <div className="flex flex-row justify-between text-sm text-gray-700 mb-4">
+      <div>{movie.Year}</div>
+      <div className="capitalize">{movie.Type}</div>
     </div>
+    <button onClick={addfav} className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300">
+      Watchlater
+    </button>
+  </div>
+</div>
+
   )
 }
 
